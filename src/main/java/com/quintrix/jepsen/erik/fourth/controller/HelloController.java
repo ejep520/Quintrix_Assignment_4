@@ -65,7 +65,7 @@ public class HelloController {
             else if (nextString.equals("%5D"))
               output += ']';
             else
-              output += String.format("((I don't know what %s is!", nextString);
+              output += String.format("((I don't know what %s is!))", nextString);
             break;
           default:
             output += nextChar;
