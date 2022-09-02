@@ -52,20 +52,38 @@ public class HelloController {
           case '%':
             nextString = "%" + (char) is.read();
             nextString += (char) is.read();
-            if (nextString.equals("%0A"))
-              output += System.lineSeparator();
-            else if (nextString.equals("%2C"))
-              output += ',';
-            else if (nextString.equals("%3F"))
-              output += '?';
-            else if (nextString.equals("%27"))
-              output += '\'';
-            else if (nextString.equals("%5B"))
-              output += '[';
-            else if (nextString.equals("%5D"))
-              output += ']';
-            else
-              output += String.format("((I don't know what %s is!))", nextString);
+            switch (nextString) {
+              case "%0A":
+                output += System.lineSeparator();
+                break;
+              case "%21":
+                output += '!';
+                break;
+              case "%27":
+                output += '\'';
+                break;
+              case "%28":
+                output += '(';
+                break;
+              case "%29":
+                output += ')';
+                break;
+              case "%2C":
+                output += ',';
+                break;
+              case "%3F":
+                output += '?';
+                break;
+              case "%5B":
+                output += '[';
+                break;
+              case "%5D":
+                output += ']';
+                break;
+              default:
+                output += String.format("((I don't know what %s is!))", nextString);
+                break;
+            }
             break;
           default:
             output += nextChar;
